@@ -1,4 +1,4 @@
-namespace EventPlayground
+namespace EventPlayground1
 {
     internal static class Program
     {

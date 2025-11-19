@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EventPlayground
+namespace EventPlayground1
 {
     public partial class Form1 : Form
     {
@@ -19,11 +13,13 @@ namespace EventPlayground
         {
             InitializeComponent();
 
+            // Fill ComboBox
             cmbColors.Items.Add("Red");
             cmbColors.Items.Add("Green");
             cmbColors.Items.Add("Blue");
             cmbColors.SelectedIndex = 0;
 
+            // MULTICAST EVENT SUBSCRIBERS
             ColorChangedEvent += UpdateLabelColor;
             ColorChangedEvent += ShowNotification;
 
@@ -42,20 +38,23 @@ namespace EventPlayground
             TextChangedEvent?.Invoke(this, EventArgs.Empty);
         }
 
+        // Subscriber 1
         private void UpdateLabelColor(object sender, ColorEventArgs e)
         {
             lblStatus.ForeColor = Color.FromName(e.ColorName);
         }
 
+        // Subscriber 2
         private void ShowNotification(object sender, ColorEventArgs e)
         {
             MessageBox.Show($"Color changed to {e.ColorName}");
         }
 
+        // For TextChangedEvent
         private void UpdateLabelText(object sender, EventArgs e)
         {
-            lblStatus.Text = "Current: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            lblStatus.Text = "Current: " + DateTime.Now.ToString("HH:mm:ss");
         }
     }
-
 }
+

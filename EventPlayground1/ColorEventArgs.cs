@@ -1,19 +1,18 @@
 ﻿using System;
 
-namespace EventPlayground
+namespace EventPlayground1
 {
-    // Custom EventArgs class (required in Lab)
     public class ColorEventArgs : EventArgs
     {
         public string ColorName { get; }
 
-        public ColorEventArgs(string colorName)
+        public ColorEventArgs(string name)
         {
-            ColorName = colorName;
+            ColorName = name;
         }
     }
 
-    // Custom delegates (Lab requirement: NOT using EventHandler)
+    // Custom delegates
     public delegate void ColorChangedEventHandler(object sender, ColorEventArgs e);
     public delegate void TextChangedEventHandler(object sender, EventArgs e);
 }
