@@ -1,0 +1,16 @@
+# Ignore build folders
+bin/
+obj/
+.vs/
+
+# Ignore SQLite and user-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sqlite
+
+# Ignore temporary and debug files
+*.log
+*.tmp
+*.cache
